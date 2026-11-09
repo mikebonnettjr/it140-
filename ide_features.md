@@ -10,7 +10,7 @@ Syntax highlighting is a feature that displays different parts of my code in dif
 
 ## Feature 2 – Problems Panel
 
-The Problems panel is a section of VS Code that collects all of the errors and warnings in my code in one place. When something in my program didn?t work properly, it told me where to go to find the issue, so I didn?t have to search through every line. It also let me know when I was missing syntax or had misspelled something, which were the kinds of small mistakes I was most likely to make as a beginner. Being pointed straight to the problem saved me time and made fixing errors feel manageable instead of frustrating, which is valuable for anyone just learning to code.
+The Problems panel is a section of VS Code that collects all of the errors and warnings in my code in one place. When something in my program didn't work properly, it told me where to go to find the issue, so I didn't have to search through every line. It also let me know when I was missing syntax or had misspelled something, which were the kinds of small mistakes I was most likely to make as a beginner. Being pointed straight to the problem saved me time and made fixing errors feel manageable instead of frustrating, which is valuable for anyone just learning to code.
 
 ## Feature 3 – Integrated Terminal
 
