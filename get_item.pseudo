@@ -9,25 +9,20 @@
 
 START get_item
 
-    # TODO 1: Identify the information the get-item process needs.
-    # Consider the current room, item in that room, and player's inventory.
+    GIVEN current_room
+    GIVEN room_inventory
+    GIVEN player_inventory
 
-    # TODO 2: Prompt for and receive the player's get-item command.
+    OUTPUT "What will you do?"
+    INPUT player_command
+    SET requested_item = get item name from player_command
 
-    # TODO 3: Validate whether the requested item is available in the current
-    # room. Show the decision clearly.
+    IF current_room has an item AND requested_item = room_inventory[current_room]
+        ADD requested_item TO player_inventory
+        REMOVE requested_item FROM room_inventory
+        OUTPUT "You acquired" + requested_item + "and added it to your inventory."
 
-    # TODO 4: Describe what happens when the item request is valid.
-    # Include the inventory update and player output.
+    ELSE 
+        OUTPUT "There is no" + requested_item + "in this room."
 
-    # TODO 5: Describe what happens when the item request is invalid.
-    # Include the output the player should receive.
-
-    # TODO 6: Show how the process returns to or continues the larger gameplay
-    # loop after the command is handled.
-
-END get_item
-
-
-# References
-
+    END IF
