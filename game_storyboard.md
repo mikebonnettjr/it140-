@@ -7,46 +7,45 @@
 
 **Theme:**
 
-TODO: Name and briefly describe your game's theme.
+Dungeon Crawler, where the player must make their way through different parts of the temple getting items in order to progress and exit the temple.
 
 **Storyline:**
 
-TODO: In one short paragraph, explain the setting, the player's goal, the items
-the player must gather, and the threat created by the villain.
-
+Trapped inside the ancient Temple of Akkala after a sudden cave-in seals the entrance behind you, your only hope of survival is to explore your way deeper into the ruins and find a way to escape. To survive the labyrinth's traps and reach freedom, you must explore its branching chambers to gather eight essential tools: a Torch, a Knight's Shield, The Hero's Sword, an explosive BoomShroom, an Adventurer's Cloak, a Skeleton Key, a Heart Container, and the Boss Key. Waiting in the deepest chamber—her personal lair—is The Brood Mother, a monstrous spider queen who has intentionally sealed the temple's only remaining exit, forcing you to defeat her before you can escape the Temple.
 ## Rooms
 
 Project One requires a minimum of eight rooms.
 
-1. TODO: Start room
-2. TODO: Room
-3. TODO: Room
-4. TODO: Room
-5. TODO: Room
-6. TODO: Room
-7. TODO: Room
-8. TODO: Villain room
+1.  Entrance to the Temple of Akkala
+2.  The Hall of Torches
+3.  The Armory of the Temple of Akkala
+4.  The Hidden Vault
+5.  The Blast Hollow
+6.  The Wafarer's Camp
+7.  The Webbed Crypt
+8.  The Hall of Valor
+9.  The Shrine of Life
+10. The Brood Mother's Lair
 
-Add more rooms if your design needs them.
 
 ## Items
 
 With the minimum eight-room design, Project One requires at least six items.
 Every room except the start room and villain room must contain one item.
 
-1. TODO: Item
-2. TODO: Item
-3. TODO: Item
-4. TODO: Item
-5. TODO: Item
-6. TODO: Item
+1. Torch
+2. Knight's Shield
+3. The Hero's Sword
+4. BoomShroom
+5. Adventurer's Cloak
+6. Skeleton Key
+7. Heart Container
+8. Boss Key
 
-If you add rooms beyond the minimum, add an item for every additional room
-except the start room and villain room.
 
 ## Villain
 
-TODO: Identify and briefly describe the villain.
+The Brood Mother is a towering, nightmare-inducing arachnid queen that dominates the final chamber of the Temple of Akkala. Forged by centuries of dark temple magic and subterranean isolation, she is far larger and deadlier than any ordinary cave spider.
 
 ## Storyboard and Map Check
 
@@ -65,3 +64,4 @@ Before submitting, compare this storyboard with `game_map.drawio`.
 
 Keep this file after Project One. In Module Seven, use these names and design
 choices when building the final room/item dictionary and player-facing output.
+
