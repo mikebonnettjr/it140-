@@ -7,19 +7,26 @@
 # Write pseudocode, not Python code. Use clear indentation and course-appropriate
 # keywords such as INPUT, OUTPUT, IF, ELSE, WHILE, SET, or similar terms.
 
-# TODO 1: Identify the information the movement process needs.
-# Consider the player's current room and movement command.
+GIVEN current_room
+GIVEN room_map
+SET game_over = FALSE
 
-# TODO 2: Prompt for and receive the player's movement command.
+OUTPUT "You are currently in" + current_room + "."
+OUTPUT "Enter a direction to go."
+INPUT player_command
+SET direction = get direction from player command
 
-# TODO 3: Validate whether the requested movement is possible from the
-# current room. Show the decision clearly.
 
-# TODO 4: Describe what happens when the movement command is valid.
-# Include the room update and player output.
+IF direction IS A VALID EXIT IN room_map[current_room] THEN
+    SET current_room = room_map[current_room][direction]
+    OUTPUT "You explore" + direction + "into" + current_room
+ELSE   
+    OUTPUT "There are no passages in that direction."
+END IF
 
-# TODO 5: Describe what happens when the movement command is invalid.
-# Include the output the player should receive.
-
-# TODO 6: Show how movement fits into repeated gameplay.
-# The final game continues accepting commands until a required ending occurs.
+WHILE game_over = FALSE
+    REPEAT steps 2 - 5 for each new player command
+    IF current_room = "The Brood Mother's Lair" OR player_command = "exit" THEN 
+        SET game_over = TRUE
+    END IF
+END WHILE
