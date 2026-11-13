@@ -30,3 +30,19 @@ WHILE game_over = FALSE
         SET game_over = TRUE
     END IF
 END WHILE
+
+
+
+%room dictionary for main game%
+rooms = {
+    "The Entrance to the Temple of Akkala": {"south": "The Hall of Torches"},
+    "The Hall of Torches": {"north": "The Entrance to the Temple of Akkala", "west": "The Temple Armory", "south": "The Shrine of Life", "east": "The Blast Hollow"},
+    "The Temple Armory": {"east": "The Hall of Torches", "south": "The Webbed Crypt"},
+    "The Webbed Crypt": {"north": "The Temple Armory"},
+    "The Shrine of Life" : {"north": "The Hall of Torches", "south": "The Brood Mother's Lair"},
+    "The Brood Mother's Lair": {"north": "The Shrine of Life"},
+    "The Blast Hollow": {"west": "The Hall of Torches", "south": "The Hall of Valor", "east": "The Wanderer's Camp"},
+    "The Wanderer's Camp": {"west": "The Blast Hollow", "north": "The Hidden Vault"},
+    "The Hidden Vault": {"south": "The Wanderer's Camp"},
+    "The Hall of Valor": {"north": "The Blast Hollow"},
+ }   
