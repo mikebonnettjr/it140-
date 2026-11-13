@@ -31,7 +31,8 @@ WHILE game_over = FALSE
     END IF
 END WHILE
 
-
+#https://app.diagrams.net/#G1G3vSAULPuYip-7_aQca1gaO6OsHbItuS#%7B%22pageId%22%3A%22BxN_fVSwImqooR-HojqY%22%7D
+# ^draw.io file
 
 %room dictionary for main game%
 rooms = {
