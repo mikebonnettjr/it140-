@@ -12,7 +12,7 @@ GIVEN room_map
 SET game_over = FALSE
 
 OUTPUT "You are currently in" + current_room + "."
-OUTPUT "Enter a direction to go."
+OUTPUT "What will you do?"
 INPUT player_command
 SET direction = get direction from player command
 
