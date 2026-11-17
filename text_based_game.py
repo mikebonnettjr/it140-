@@ -4,6 +4,7 @@
 
 
 
+
 def show_instructions():
     """Display the game objective and available commands."""
     # TODO: Print instructions that match your game and commands.
@@ -24,14 +25,10 @@ def show_status(current_room, player_inventory, rooms):
     # TODO: Show the current room.
     # TODO: Show the current inventory.
     # TODO: Show the current-room item when one is available.
-    print("-"*63)
-    print(f"You are currently in {current_room}.")
+    print("\n"+"-"*63)
+    print(f"You are currently in {current_room}.\n")
     print(f"{rooms[current_room]['description']}")
     print(f"\nInventory: {player_inventory}")
-    
-    #room_inventory = rooms[current_room].get("item")
-    #if room_inventory and room_inventory not in player_inventory:
-    #    print("You see an item here: {room_inventory}")
     print("-"*63)
     pass
 
@@ -105,7 +102,7 @@ def main():
         
         "The Wanderer's Camp": {
             "description": (
-                "An old campsite left abandoned in a hurry; embers still faintly" 
+                "An old campsite left abandoned in a hurry; embers still faintly\n" 
                 "glow next to an ADVENTURER'S CLOAK."
                 ),
             "north": "The Hidden Vault",
@@ -172,8 +169,7 @@ def main():
         player_command = input("\nWhat will you do?\n")
 
         if player_command == "exit":
-            print("")
-            print("="*63)
+            print("\n"+"="*63)
             print("\n       Thanks for playing the Temple of Akkala! Goodbye!\n")
             print("="*63)
             game_over = True
@@ -191,8 +187,8 @@ def main():
                     next_room == "The Hall of Torches" 
                     and player_command == "go south"
                 ):
-                    print("\nThe Entrance the the Temple has been sealed behind you!")
-                    print("You'll need to find another way out!\n")
+                    print("The Entrance the the Temple has been sealed behind you!")
+                    print("You'll need to find another way out!")
                     current_room = next_room
                     rooms["The Hall of Torches"].pop("north", None)
                     
@@ -212,6 +208,28 @@ def main():
                     elif "THE HERO'S SWORD" not in player_inventory:
                         print("Maybe you could use something sharp to cut through the thick\nlayers of webs.\n")
                         current_room = "The Temple Armory"
+                        
+                if next_room == "The Hidden Vault":
+                    print("There's fallen rocks blocking your way.")
+                    
+                    if "BOOMSHROOM" in player_inventory:
+                        print("\nYou use the BOOMSHROOM to clear the passage!\n")
+                        current_room = next_room
+                        
+                    elif "BOOMSHROOM" not in player_inventory:
+                        print("Maybe something could help clear the path!\n")
+                        current_room = "The Wanderer's Camp"
+                        
+                if next_room == "The Hall of Valor":
+                    print("Looks like it requires a key to unlock.")
+                    
+                    if "SKELETON KEY" in player_inventory:
+                        print("\nYou try the SKELETON KEY on the door. It unlocks!")
+                        current_room = next_room
+                        
+                    if "SKELETON KEY" not in player_inventory:
+                        print("Maybe the key is in another room.")
+                        current_room = "The Blast Hollow"
     
                 if next_room == "The Brood Mother's Lair":
                     
@@ -221,11 +239,11 @@ def main():
                         game_over = True
                         
                     elif "BOSS KEY" not in player_inventory and len(player_inventory) == 7:
-                        print("\nLooks like you need a key!\n")
+                        print("\nLooks like you need a key!")
                         current_room = "The Shrine of Life"
                         
                     elif "BOSS KEY" not in player_inventory and len(player_inventory) < 8:
-                        print("\nLooks like you need a key!\n")
+                        print("\nLooks like you need a key!")
                         current_room = "The Shrine of Life"
                         
                     elif "BOSS KEY" in player_inventory and len(player_inventory) < 8:
@@ -233,7 +251,7 @@ def main():
                         current_room = "The Shrine of Life"
                         
             else:
-                print(f"\nThere are no passages to the {direction}!\n")
+                print(f"\nThere are no passages to the {direction}!")
 
         elif player_command.startswith("get "):
 
@@ -252,7 +270,7 @@ def main():
                 print("\nYou already have this item!\n")
                 
             else:
-                print("\nThat item is not here!\n")
+                print("\nThat item is not here.\n")
                 
         else:
             print("\nInvalid Input. Try using an accepted command.\n")
@@ -261,3 +279,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+    
