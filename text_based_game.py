@@ -207,12 +207,10 @@ def main():
                 if next_room == "The Webbed Crypt":
                     
                     if "THE HERO'S SWORD" in player_inventory:
-                        print("You use the HERO'S SWORD to cut")
-                        print("through the thick layers of webs.\n")
+                        print("You use the HERO'S SWORD to cut through the thick layers\nof webs.\n")
                         
                     elif "THE HERO'S SWORD" not in player_inventory:
-                        print("Maybe you could use something sharp to cut")
-                        print("through the layers of webs.\n")
+                        print("Maybe you could use something sharp to cut through the thick\nlayers of webs.\n")
                         current_room = "The Temple Armory"
     
                 if next_room == "The Brood Mother's Lair":
