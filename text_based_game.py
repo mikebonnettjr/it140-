@@ -3,6 +3,7 @@
 # Mike Bonnett 
 
 
+
 def show_instructions():
     """Display the game objective and available commands."""
     # TODO: Print instructions that match your game and commands.
@@ -149,20 +150,56 @@ def main():
             direction = player_command.replace("go ", "")
 
             if direction in rooms[current_room]:
-                current_room = rooms[current_room][direction]
+                next_room = rooms[current_room][direction]
                 print(f"\nYou explore {direction}.\n")
-            
-                if current_room == "The Brood Mother's Lair":
-                    print("story") #fill in story and inventory requirements
+                current_room = next_room
+                if (
+                    next_room == "The Hall of Torches" 
+                    and player_command == "go south"
+                ):
+                    print("\nThe Entrance the the Temple has been sealed behind you!")
+                    print("You'll need to find another way out!\n")
+                    current_room = next_room
+                    rooms["The Hall of Torches"].pop("north", None)
                     
-                    #if player_inventory = [8]:
-                        #print(Story for defeating the boss)
-                    game_over = True
-                    #elif boss_key not in player_inventory:
-                        #print("Looks like you need a key")
-                    #elif player_inventory < [8]:
-                        #print("You open the door and see boss. Maybe you should look around more")
+                if (
+                    next_room != "The Hall of Torches" and direction != "north"
+                    and "TORCH" not in player_inventory
+                ): 
+        
+                    print("It's too dark to continue without a light!")
+                    current_room = "The Hall of Torches"
+                        
+                if next_room == "The Webbed Crypt":
                     
+                    if "THE HERO'S SWORD" in player_inventory:
+                        print("You use the HERO'S SWORD to cut")
+                        print("through the thick layers of webs.\n")
+                        
+                    elif "THE HERO'S SWORD" not in player_inventory:
+                        print("Maybe you could use something sharp to cut")
+                        print("through the layers of webs.\n")
+                        current_room = "The Temple Armory"
+    
+                if next_room == "The Brood Mother's Lair":
+                    
+                    if len(player_inventory) == 8:
+                        print("story") #fill in story and inventory requirements
+                        print("Story defeating the boss and Escaping")
+                        game_over = True
+                        
+                    elif "BOSS KEY" not in player_inventory and len(player_inventory) == 7:
+                        print("\nLooks like you need a key!\n")
+                        current_room = "The Shrine of Life"
+                        
+                    elif "BOSS KEY" not in player_inventory and len(player_inventory) < 8:
+                        print("\nLooks like you need a key!\n")
+                        current_room = "The Shrine of Life"
+                        
+                    elif "BOSS KEY" in player_inventory and len(player_inventory) < 8:
+                        print("You open the door and see boss. Maybe you should look around more")
+                        current_room = "The Shrine of Life"
+                        
             else:
                 print(f"\nThere are no passages to the {direction}!\n")
 
@@ -172,7 +209,7 @@ def main():
 
             if (
                 current_room in room_inventory
-                and requested_item == room_inventory[current_room].lower()
+                and requested_item == room_inventory[current_room]
                 ):
                     item_acquired = room_inventory.pop(current_room)
                     player_inventory.append(item_acquired)
