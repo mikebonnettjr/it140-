@@ -26,8 +26,8 @@ def show_status(current_room, player_inventory, rooms):
     # TODO: Show the current-room item when one is available.
     print("-"*63)
     print(f"You are currently in {current_room}.")
-    #print(f"{rooms[current_room]['description']}")
-    print(f"Inventory: {player_inventory}")
+    print(f"{rooms[current_room]['description']}")
+    print(f"\nInventory: {player_inventory}")
     
     #room_inventory = rooms[current_room].get("item")
     #if room_inventory and room_inventory not in player_inventory:
@@ -40,59 +40,92 @@ def main():
     """Run the main gameplay loop."""
     # TODO: Create the full room/item dictionary from your Project One map.
     rooms = {
-        "The Entrance to the Temple of Akkala": {"south": "The Hall of Torches"},
+        
+        "The Entrance to the Temple of Akkala": {
+            "description": (
+                "A grand, weathered stone archway marking the mouth of the\n" 
+                "ancient temple."
+                ),
+            "south": "The Hall of Torches"
+        },
         
         "The Hall of Torches": {
+            "description": (
+                "A vast chamber lined with unlit sconces and looming statues.\n" 
+                "You notice a glowing TORCH here."
+                ),
             "north": "The Entrance to the Temple of Akkala",
             "west": "The Temple Armory",
             "south": "The Shrine of Life",
             "east": "The Blast Hollow"
-            
         },
         
         "The Temple Armory": {
+            "description": (
+                "Rusted weapon racks and shattered armor pieces litter the cold\n"
+                "floor. A KNIGHT'S SHIELD rests against a pillar."
+                ),
             "east": "The Hall of Torches", 
             "south": "The Webbed Crypt"
-            
         },
         
         "The Webbed Crypt": {
+            "description": (
+                "A damp, subterranean tomb choked in thick, sticky spider silk.\n"
+                "A BOSS KEY glints amid the strands."
+                ),
             "north": "The Temple Armory"
-            
         },
         
         "The Shrine of Life": {
+            "description": (
+                "An eerie altar glows with a faint, pulsing blue light, holding\n"
+                "a HEART CONTAINER."
+                ),
             "north": "The Hall of Torches", 
             "south":"The Brood Mother's Lair"
-            
         },
         
         "The Brood Mother's Lair": {
-            "north": "The Shrine of Life"
-            
+            "description": (
+                "A cavernous nest of bone and web where the massive queen awaits."
+                ),
+            "north": "The Shrine of Life",
         },
         
         "The Blast Hollow": {
+            "description": (
+                "The air here is heavy with sulfur and scorched earth. A\n" 
+                "volatile BOOMSHROOM sits on a rock."
+                ),
             "west": "The Hall of Torches", 
             "south": "The Hall of Valor", 
             "east": "The Wanderer's Camp"
-            
         },
         
         "The Wanderer's Camp": {
-            "west": "The Blast Hollow",
-            "north": "The Hidden Vault"
-            
+            "description": (
+                "An old campsite left abandoned in a hurry; embers still faintly" 
+                "glow next to an ADVENTURER'S CLOAK."
+                ),
+            "north": "The Hidden Vault",
+            "west": "The Blast Hollow"
         },
         
         "The Hidden Vault": {
+            "description": (
+                "A secure, secret alcove carved deep into the temple rock,\n"
+                "containing a SKELETON KEY."
+                ),
             "south": "The Wanderer's Camp"
-            
         },
         
         "The Hall of Valor": {
+            "description": (
+                "Towering pillars honor fallen heroes of a forgotten era.\n"
+                "THE HERO'S SWORD is embedded in a stone pedestal."
+                ),
             "north": "The Blast Hollow"
-            
         },
      }
      
@@ -149,10 +182,11 @@ def main():
 
             direction = player_command.replace("go ", "")
 
-            if direction in rooms[current_room]:
+            if direction in rooms[current_room] and direction != "description":
                 next_room = rooms[current_room][direction]
                 print(f"\nYou explore {direction}.\n")
                 current_room = next_room
+                
                 if (
                     next_room == "The Hall of Torches" 
                     and player_command == "go south"
